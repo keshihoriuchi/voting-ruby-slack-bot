@@ -38,16 +38,16 @@ rtc.on :hello do
   puts "#{conf["name"]} start"
 end
 rtc.on :message do |data|
-  case data.text
-  when "#{conf["name"]} sample"
+  t = data.text
+  if t == "#{conf["name"]} sample"
     sample = conf["samples"].sample
     rtc.message channel: data.channel, text: "<@#{sample}>"
-  when "#{conf["name"]} ping"
+  elsif t == "#{conf["name"]} ping"
     rtc.message channel: data.channel, text: "pong"
-  when /^#{conf["name"]} vote (\S+)$/
+  elsif m = t.match(/^#{conf["name"]} vote (\S+)$/)
     if voting
       begin
-        voting.vote(data.user, $1)
+        voting.vote(data.user, m[1])
         rtc.message channel: data.channel, text: "受付"
       rescue
         rtc.message channel: data.channel, text: "無効"
