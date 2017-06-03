@@ -1,0 +1,14 @@
+---
+name: rubot
+token: slack-token
+samples:
+  - alice
+  - bob
+voting:
+  channel: "#general"
+  start: "58 * * * *"
+  end: "59 * * * *"
+  targets:
+    - foo
+    - bar
+    - baz
