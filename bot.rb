@@ -1,6 +1,5 @@
 # coding: utf-8
 
-require "logger"
 require "yaml"
 require "slack-ruby-client"
 require "rufus-scheduler"
