@@ -10,7 +10,7 @@
 
 ```sh
 $ cp config.sample.yml config.yml
-$ vim config.yml # Propely setting
+$ vim config.yml # Properly setting
 $ bundle ins --path .bundle
 $ bundle ex ruby bot.rb
 ```
